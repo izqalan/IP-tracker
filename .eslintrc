@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb", "airbnb/hooks", "plugin:react/recommended"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "linebreak-style": ["off", "win"],
+    "jsx-quotes": "off",
+    "quotes": [2, "double", { "avoidEscape": true }]
+  }
+}
