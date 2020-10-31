@@ -24,6 +24,9 @@ const Main = (props) => {
     axios({
       method: 'GET',
       url: `https://geo.ipify.org/api/v1?apiKey=${API_KEY}`,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
     }).then((response) => {
       const data = response.data;
       setaddress(data.ip);
