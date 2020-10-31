@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import L from 'leaflet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
+import mapMarker from '../images/icon-location.svg'
 
 const Main = (props) => {
   const [address, setaddress] = useState('--');
@@ -12,6 +14,11 @@ const Main = (props) => {
   const [search, setsearch] = useState('');
   const [position, setposition] = useState([3.1412, 101.68653])
   const API_KEY = process.env.REACT_APP_API_KEY;
+  const myIcon = L.icon({
+    iconUrl: mapMarker,
+    iconSize: [36, 42],
+    popupAnchor: [-10, -30],
+  });
   useEffect(() => {
     console.log('calls')
     axios({
@@ -99,8 +106,11 @@ const Main = (props) => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
-          <Marker position={position} className='bg-marker'>
-            <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
+          <Marker position={position} icon={myIcon}>
+            <Popup>
+              <div className="font-bold">{location}</div>
+              <div className='italic'>GMT {timeZone}</div>
+            </Popup>
           </Marker>
         </Map>
       </div>
