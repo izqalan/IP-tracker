@@ -42,7 +42,7 @@ const Main = (props) => {
   const handleSubmit = async () => {
     axios({
       method: 'GET',
-      url: `https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=${API_KEY}&ipAddress=${search}`,
+      url: `https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=${API_KEY}&domain=${search}`,
     }).then((response) => {
       const data = response.data;
       setaddress(data.ip);
