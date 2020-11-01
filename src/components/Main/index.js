@@ -23,7 +23,7 @@ const Main = (props) => {
     console.log('calls')
     axios({
       method: 'GET',
-      url: `https://geo.ipify.org/api/v1?apiKey=${API_KEY}`,
+      url: `https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=${API_KEY}`,
       headers: {
         'Access-Control-Allow-Origin': '*'
       }
