@@ -42,7 +42,7 @@ const Main = (props) => {
   const handleSubmit = async () => {
     axios({
       method: 'GET',
-      url: `https://geo.ipify.org/api/v1?apiKey=${API_KEY}&ipAddress=${search}`,
+      url: `https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=${API_KEY}&ipAddress=${search}`,
     }).then((response) => {
       const data = response.data;
       setaddress(data.ip);
@@ -50,7 +50,6 @@ const Main = (props) => {
       settimeZone(data.location.timezone)
       setisp(data.isp)
       setposition([data.location.lat, data.location.lng])
-      console.log(position)
     }).catch((err) => {
       console.log(err)
     })
